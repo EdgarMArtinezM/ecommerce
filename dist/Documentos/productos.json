@@ -1,0 +1,23 @@
+[
+  {
+    "id": 2,
+    "nombre": "wwcwdacedc",
+    "descripcion": "Modelo 20020",
+    "precio": 10000,
+    "imagen": "imagen.png"
+  },
+  {
+    "id": 3,
+    "nombre": "juanotoototot",
+    "descripcion": "rojo",
+    "precio": "60000",
+    "imagen": "hola.png"
+  },
+  {
+    "id": 4,
+    "nombre": "carro",
+    "descripcion": "rojo",
+    "precio": "60000",
+    "imagen": "hola.pnjj"
+  }
+]
