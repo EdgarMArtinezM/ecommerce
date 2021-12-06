@@ -1,4 +1,5 @@
 import fs from 'fs'
+import { now } from 'moment'
 import path from 'path'
 import { id } from '../utils'
 const url2=path.join(__dirname, '../Documentos/productos.json')
@@ -10,7 +11,7 @@ export class Carrito{
             let objProduct=JSON.parse(productos)
             let preparObj={
                 id:id(objProduct),
-                timestamp: 'hola',
+                timestamp: Date.now(),
                 productos: []
             }
             objProduct.push(preparObj)
@@ -24,7 +25,7 @@ export class Carrito{
         }catch{
             let preparObj={
                 id:0,
-                timestamp: 'hola',
+                timestamp: Date.now(),
                 productos: []
             }
             await fs.promises.writeFile(urlCar,JSON.stringify([preparObj],null,2))
@@ -49,10 +50,10 @@ export class Carrito{
             let nuevo=obj.filter((res:any)=>res.id!=id)
             if(nuevo!=0){
                 await fs.promises.writeFile(urlCar, JSON.stringify(nuevo, null, 2))
-                return {status:"Eliminado",message:"Usuario eliminado correctamente"}
+                return {status:"Eliminado",message:"Producto eliminado correctamente"}
             }else{
                 await fs.promises.writeFile(urlCar, JSON.stringify(nuevo, null, 2))
-                return {status:"error",message:"No existe el usuario"}
+                return {status:"error",message:"No existe el producto"}
             }
         }else{
             return {status:"Error",message:"No se encontro ningun registro con ese id"}

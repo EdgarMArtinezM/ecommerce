@@ -8,7 +8,7 @@ const Carrito_1 = require("../Productos/Carrito");
 const utils_1 = require("../utils");
 const car = new Carrito_1.Carrito();
 const routeCar = express_1.default.Router();
-routeCar.get('/:id', utils_1.middleware, (request, response) => {
+routeCar.get('/:id/productos', utils_1.middleware, (request, response) => {
     let id = Number(request.params.id);
     car.getByid(id).then(res => {
         response.send(res);
@@ -19,9 +19,9 @@ routeCar.post('/', utils_1.middleware, (request, response) => {
         response.send(res);
     });
 });
-routeCar.post('/:id&:idProd', utils_1.middleware, (request, response) => {
+routeCar.post('/:id/productos', utils_1.middleware, (request, response) => {
     let id = Number(request.params.id);
-    let idProd = Number(request.params.idProd);
+    let idProd = Number(request.body.idProd);
     car.saveProd(id, idProd).then(res => {
         response.send(res);
     });
@@ -32,7 +32,7 @@ routeCar.delete('/:id', utils_1.middleware, (request, response) => {
         response.send(res);
     });
 });
-routeCar.delete('delete/:id&:idProd', utils_1.middleware, (request, response) => {
+routeCar.delete('/:id/productos/:idProd', utils_1.middleware, (request, response) => {
     let id = Number(request.params.id);
     let idProd = Number(request.params.idProd);
     car.deleteProd(id, idProd).then(res => {

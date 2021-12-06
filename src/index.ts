@@ -13,6 +13,6 @@ app.use(express.urlencoded({extended:true}))
 app.use('/api/carrito',routeCar)
 app.use('/api/productos',route)
 
-app.listen(3000,()=>{
-    console.log('escuchando e puerto 3000')
+app.listen(9000,()=>{
+    console.log('escuchando e puerto 9000')
 })

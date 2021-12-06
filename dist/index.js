@@ -13,6 +13,6 @@ app.use(express_1.default.json());
 app.use(express_1.default.urlencoded({ extended: true }));
 app.use('/api/carrito', routesCar_1.default);
 app.use('/api/productos', routes_1.default);
-app.listen(3000, () => {
-    console.log('escuchando e puerto 3000');
+app.listen(9000, () => {
+    console.log('escuchando e puerto 9000');
 });

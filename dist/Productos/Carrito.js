@@ -26,7 +26,7 @@ class Carrito {
                 let objProduct = JSON.parse(productos);
                 let preparObj = {
                     id: (0, utils_1.id)(objProduct),
-                    timestamp: 'hola',
+                    timestamp: Date.now(),
                     productos: []
                 };
                 objProduct.push(preparObj);
@@ -41,7 +41,7 @@ class Carrito {
             catch (_b) {
                 let preparObj = {
                     id: 0,
-                    timestamp: 'hola',
+                    timestamp: Date.now(),
                     productos: []
                 };
                 yield fs_1.default.promises.writeFile(urlCar, JSON.stringify([preparObj], null, 2));
@@ -71,11 +71,11 @@ class Carrito {
                 let nuevo = obj.filter((res) => res.id != id);
                 if (nuevo != 0) {
                     yield fs_1.default.promises.writeFile(urlCar, JSON.stringify(nuevo, null, 2));
-                    return { status: "Eliminado", message: "Usuario eliminado correctamente" };
+                    return { status: "Eliminado", message: "Producto eliminado correctamente" };
                 }
                 else {
                     yield fs_1.default.promises.writeFile(urlCar, JSON.stringify(nuevo, null, 2));
-                    return { status: "error", message: "No existe el usuario" };
+                    return { status: "error", message: "No existe el producto" };
                 }
             }
             else {

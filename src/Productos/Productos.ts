@@ -13,10 +13,12 @@ export class Productos{
             }else{
                 let preparObj:Object={
                     id:id(objProduct),
+                    timestamp: Date.now(),
                     nombre: obj.nombre,
                     descripcion: obj.descripcion,
                     precio: obj.precio,
-                    imagen: obj.imagen
+                    imagen: obj.imagen,
+                    stock:  obj.stock
                 }
                 objProduct.push(preparObj)
                 try{
@@ -29,10 +31,12 @@ export class Productos{
         }catch{
             let preparObj:Object={
                 id:0,
+                timestamp: Date.now(),
                 nombre: obj.nombre,
                 descripcion: obj.descripcion,
                 precio: obj.precio,
-                imagen: obj.imagen
+                imagen: obj.imagen,
+                stock:  obj.stock
             }
             await fs.promises.writeFile(url2,JSON.stringify([preparObj],null,2))
             return {status:'succes',message:'El archivo se leyo correctamente'}

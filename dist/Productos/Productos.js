@@ -29,10 +29,12 @@ class Productos {
                 else {
                     let preparObj = {
                         id: (0, utils_1.id)(objProduct),
+                        timestamp: Date.now(),
                         nombre: obj.nombre,
                         descripcion: obj.descripcion,
                         precio: obj.precio,
-                        imagen: obj.imagen
+                        imagen: obj.imagen,
+                        stock: obj.stock
                     };
                     objProduct.push(preparObj);
                     try {
@@ -47,10 +49,12 @@ class Productos {
             catch (_b) {
                 let preparObj = {
                     id: 0,
+                    timestamp: Date.now(),
                     nombre: obj.nombre,
                     descripcion: obj.descripcion,
                     precio: obj.precio,
-                    imagen: obj.imagen
+                    imagen: obj.imagen,
+                    stock: obj.stock
                 };
                 yield fs_1.default.promises.writeFile(url2, JSON.stringify([preparObj], null, 2));
                 return { status: 'succes', message: 'El archivo se leyo correctamente' };
